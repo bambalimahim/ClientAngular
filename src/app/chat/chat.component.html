@@ -1,0 +1,11 @@
+<div class="container color-light">
+    <div class="col">
+        <p class="sm">{{pseudo}}</p>
+        <form>
+          <textarea rows="28" cols="92" name="messages" [(ngModel)]="messages"></textarea>
+          <input type="text" class="txt" name="message" placeholder="message" [(ngModel)]="message">
+          <input type="submit" class="btn" value="send" (click)="postMessage()">
+          <input type="submit" class="btn" value="disconnect" (click)="disconnect()">
+        </form>
+    </div>
+  </div>

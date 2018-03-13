@@ -1,0 +1,10 @@
+<div class="container color-light">
+  <div class="col">
+      <p class="sm">Donnez votre Pseudo</p>
+      <form>
+        <input type="text" class="txt" name="pseudo" placeholder="pseudo" [(ngModel)]="pseudo">
+        <input type="submit" class="btn" value="connect" (click)="subscribe()">
+        <p ng-value="message"></p>
+      </form>
+  </div>
+</div>

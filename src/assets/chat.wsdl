@@ -1,0 +1,156 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://rmi" xmlns:intf="http://rmi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://rmi">
+<!--
+WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)
+-->
+<wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://rmi">
+<element name="getMessage">
+<complexType>
+<sequence>
+<element name="url" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+<element name="getMessageResponse">
+<complexType>
+<sequence>
+<element name="getMessageReturn" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+<element name="unsubscribe">
+<complexType>
+<sequence>
+<element name="pseudo" type="xsd:string"/>
+<element name="url" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+<element name="unsubscribeResponse">
+<complexType>
+<sequence>
+<element name="unsubscribeReturn" type="xsd:boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="subscribe">
+<complexType>
+<sequence>
+<element name="pseudo" type="xsd:string"/>
+<element name="salon" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+<element name="subscribeResponse">
+<complexType>
+<sequence>
+<element name="subscribeReturn" type="xsd:boolean"/>
+</sequence>
+</complexType>
+</element>
+<element name="postMessage">
+<complexType>
+<sequence>
+<element name="pseudo" type="xsd:string"/>
+<element name="mesage" type="xsd:string"/>
+<element name="url" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+<element name="postMessageResponse">
+<complexType>
+<sequence>
+<element name="postMessageReturn" type="xsd:string"/>
+</sequence>
+</complexType>
+</element>
+</schema>
+</wsdl:types>
+<wsdl:message name="getMessageResponse">
+<wsdl:part element="impl:getMessageResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="unsubscribeResponse">
+<wsdl:part element="impl:unsubscribeResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="subscribeRequest">
+<wsdl:part element="impl:subscribe" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="postMessageResponse">
+<wsdl:part element="impl:postMessageResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="unsubscribeRequest">
+<wsdl:part element="impl:unsubscribe" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="subscribeResponse">
+<wsdl:part element="impl:subscribeResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="postMessageRequest">
+<wsdl:part element="impl:postMessage" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="getMessageRequest">
+<wsdl:part element="impl:getMessage" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:portType name="SPClass">
+<wsdl:operation name="getMessage">
+<wsdl:input message="impl:getMessageRequest" name="getMessageRequest"></wsdl:input>
+<wsdl:output message="impl:getMessageResponse" name="getMessageResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="unsubscribe">
+<wsdl:input message="impl:unsubscribeRequest" name="unsubscribeRequest"></wsdl:input>
+<wsdl:output message="impl:unsubscribeResponse" name="unsubscribeResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="subscribe">
+<wsdl:input message="impl:subscribeRequest" name="subscribeRequest"></wsdl:input>
+<wsdl:output message="impl:subscribeResponse" name="subscribeResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="postMessage">
+<wsdl:input message="impl:postMessageRequest" name="postMessageRequest"></wsdl:input>
+<wsdl:output message="impl:postMessageResponse" name="postMessageResponse"></wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="SPClassSoapBinding" type="impl:SPClass">
+<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getMessage">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getMessageRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getMessageResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="unsubscribe">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="unsubscribeRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="unsubscribeResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="subscribe">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="subscribeRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="subscribeResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="postMessage">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="postMessageRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="postMessageResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="SPClassService">
+<wsdl:port binding="impl:SPClassSoapBinding" name="SPClass">
+<wsdlsoap:address location="http://localhost:8080/SP/services/SPClass"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
